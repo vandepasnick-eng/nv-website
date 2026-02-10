@@ -452,6 +452,7 @@ function Contact() {
           ) : (
             <div className="bg-navy-50 rounded-2xl p-6 sm:p-10 border border-navy-100">
               <form
+                method="POST"
                 onSubmit={(e) => {
                   e.preventDefault();
                   setSubmitted(true);
