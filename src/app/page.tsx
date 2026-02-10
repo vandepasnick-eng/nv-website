@@ -307,7 +307,7 @@ function About() {
           <div className="mt-12 space-y-8">
             <div className="bg-white rounded-2xl p-8 shadow-md border border-navy-100/50">
               <h3 className="text-xl font-bold text-navy-900 mb-4">
-                Engineer-turned-web-developer
+                Engineer turned web developer
               </h3>
               <p className="text-navy-600 leading-relaxed">
                 I spent years as an engineer before moving into web development.
