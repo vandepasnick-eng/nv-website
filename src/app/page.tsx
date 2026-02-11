@@ -412,6 +412,44 @@ function About() {
 
 function Contact() {
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState("");
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setSending(true);
+    setError("");
+
+    const form = e.currentTarget;
+    const data = {
+      name: (form.elements.namedItem("name") as HTMLInputElement).value,
+      email: (form.elements.namedItem("email") as HTMLInputElement).value,
+      phone: (form.elements.namedItem("phone") as HTMLInputElement).value,
+      trade: (form.elements.namedItem("trade") as HTMLSelectElement).value,
+      message: (form.elements.namedItem("message") as HTMLTextAreaElement).value,
+    };
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+
+      if (!res.ok) {
+        const result = await res.json();
+        throw new Error(result.error || "Something went wrong");
+      }
+
+      setSubmitted(true);
+    } catch (err) {
+      setError(
+        err instanceof Error ? err.message : "Failed to send. Please try again."
+      );
+    } finally {
+      setSending(false);
+    }
+  }
 
   return (
     <section id="contact" className="py-16 sm:py-24 bg-white">
@@ -453,10 +491,7 @@ function Contact() {
             <div className="bg-navy-50 rounded-2xl p-6 sm:p-10 border border-navy-100">
               <form
                 method="POST"
-                onSubmit={(e) => {
-                  e.preventDefault();
-                  setSubmitted(true);
-                }}
+                onSubmit={handleSubmit}
                 className="space-y-5"
               >
                 <div className="grid sm:grid-cols-2 gap-5">
@@ -554,11 +589,18 @@ function Contact() {
                   />
                 </div>
 
+                {error && (
+                  <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg text-sm">
+                    {error}
+                  </div>
+                )}
+
                 <button
                   type="submit"
-                  className="w-full bg-accent-500 hover:bg-accent-600 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all cursor-pointer shadow-lg shadow-accent-500/25 hover:shadow-xl hover:shadow-accent-500/30"
+                  disabled={sending}
+                  className="w-full bg-accent-500 hover:bg-accent-600 disabled:bg-accent-500/50 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all cursor-pointer shadow-lg shadow-accent-500/25 hover:shadow-xl hover:shadow-accent-500/30 disabled:cursor-not-allowed disabled:shadow-none"
                 >
-                  Send Message
+                  {sending ? "Sending..." : "Send Message"}
                 </button>
               </form>
 
