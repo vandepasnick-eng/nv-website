@@ -27,7 +27,7 @@ export async function POST(request: Request) {
     const contactEmail = process.env.CONTACT_EMAIL;
 
     await resend.emails.send({
-      from: "NV Web Design <onboarding@resend.dev>",
+      from: "NV Web Design <hello@nicholasvandepas.com>",
       to: contactEmail!,
       replyTo: email,
       subject: `New enquiry from ${name}`,
