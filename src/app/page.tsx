@@ -2,6 +2,70 @@ import Image from "next/image";
 import Header from "./components/Header";
 import Contact from "./components/Contact";
 
+function BrowserMockup() {
+  return (
+    <div className="rounded-xl overflow-hidden shadow-2xl border border-navy-200 bg-white">
+      {/* Browser chrome */}
+      <div className="bg-navy-100 px-4 py-2.5 flex items-center gap-2">
+        <div className="flex gap-1.5">
+          <span className="w-3 h-3 rounded-full bg-navy-300" />
+          <span className="w-3 h-3 rounded-full bg-navy-300" />
+          <span className="w-3 h-3 rounded-full bg-navy-300" />
+        </div>
+        <div className="flex-1 bg-white rounded-md px-3 py-1 text-xs text-navy-400 ml-2">
+          wellingtonplumbing.co.nz
+        </div>
+      </div>
+      {/* Fake site content — plumber theme */}
+      <div className="bg-sky-50">
+        {/* Nav */}
+        <div className="bg-white px-4 py-2 flex items-center justify-between border-b border-sky-100">
+          <span className="text-sm font-bold text-sky-900">WP Plumbing</span>
+          <div className="flex gap-3 text-xs text-sky-600">
+            <span>Services</span>
+            <span>About</span>
+            <span className="bg-sky-600 text-white px-2 py-0.5 rounded text-xs">Call Now</span>
+          </div>
+        </div>
+        {/* Hero area */}
+        <div className="px-4 py-6 sm:py-8">
+          <p className="text-lg sm:text-xl font-bold text-sky-900 leading-snug">
+            Wellington&apos;s Trusted<br />
+            <span className="text-sky-600">Plumber</span>
+          </p>
+          <p className="text-xs text-sky-700 mt-2 leading-relaxed">
+            Fast, reliable plumbing for homes<br />
+            and businesses across Wellington.
+          </p>
+          <div className="flex gap-2 mt-3">
+            <span className="bg-sky-600 text-white text-xs px-3 py-1.5 rounded font-medium">
+              Get a Quote
+            </span>
+            <span className="border border-sky-300 text-sky-700 text-xs px-3 py-1.5 rounded">
+              04 555 1234
+            </span>
+          </div>
+        </div>
+        {/* Service cards hint */}
+        <div className="px-4 pb-4 grid grid-cols-3 gap-2">
+          <div className="bg-white rounded-lg p-2 text-center border border-sky-100">
+            <div className="w-6 h-6 bg-sky-100 rounded-full mx-auto mb-1" />
+            <span className="text-xs text-sky-800 font-medium">Repairs</span>
+          </div>
+          <div className="bg-white rounded-lg p-2 text-center border border-sky-100">
+            <div className="w-6 h-6 bg-sky-100 rounded-full mx-auto mb-1" />
+            <span className="text-xs text-sky-800 font-medium">New Builds</span>
+          </div>
+          <div className="bg-white rounded-lg p-2 text-center border border-sky-100">
+            <div className="w-6 h-6 bg-sky-100 rounded-full mx-auto mb-1" />
+            <span className="text-xs text-sky-800 font-medium">Gas</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function Hero() {
   return (
     <section className="relative pt-28 pb-20 sm:pt-36 sm:pb-28 bg-gradient-to-br from-navy-50 via-white to-navy-50 overflow-hidden">
@@ -10,36 +74,44 @@ function Hero() {
       <div className="absolute bottom-10 right-10 w-96 h-96 bg-navy-200/40 rounded-full blur-3xl" />
 
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-3xl mx-auto text-center">
-          <div className="inline-flex items-center gap-2 bg-navy-900/5 rounded-full px-4 py-1.5 mb-8">
-            <span className="w-2 h-2 bg-accent-500 rounded-full" />
-            <span className="text-sm font-medium text-navy-700">
-              NZ-based web design for trades
-            </span>
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          {/* Left column — copy */}
+          <div>
+            <div className="inline-flex items-center gap-2 bg-navy-900/5 rounded-full px-4 py-1.5 mb-8">
+              <span className="w-2 h-2 bg-accent-500 rounded-full" />
+              <span className="text-sm font-medium text-navy-700">
+                NZ-based web design for trades
+              </span>
+            </div>
+
+            <h1 className="text-4xl sm:text-5xl lg:text-5xl font-bold text-navy-900 leading-tight">
+              Get found on Google.{" "}
+              <span className="text-accent-500">Get more calls.</span>
+            </h1>
+            <p className="mt-6 text-lg sm:text-xl text-navy-600 leading-relaxed">
+              Professional websites for NZ trades businesses — live in a week,
+              from $0 upfront. See a free mock-up of your site before you
+              pay a cent.
+            </p>
+            <div className="mt-10 flex flex-col sm:flex-row gap-4">
+              <a
+                href="#contact"
+                className="bg-accent-500 hover:bg-accent-600 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all text-center"
+              >
+                Get Your Free Mock-Up
+              </a>
+              <a
+                href="#services"
+                className="border-2 border-navy-200 hover:border-navy-300 hover:bg-navy-50 text-navy-700 px-8 py-4 rounded-xl font-semibold text-lg transition-all text-center"
+              >
+                See Pricing
+              </a>
+            </div>
           </div>
 
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-navy-900 leading-tight">
-            Get found on Google.{" "}
-            <span className="text-accent-500">Get more calls.</span>
-          </h1>
-          <p className="mt-6 text-lg sm:text-xl text-navy-600 leading-relaxed max-w-2xl mx-auto">
-            Professional websites for NZ trades businesses — live in a week,
-            from $0 upfront. See a free mock-up of your site before you
-            pay a cent.
-          </p>
-          <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="#contact"
-              className="bg-accent-500 hover:bg-accent-600 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all shadow-lg shadow-accent-500/25 hover:shadow-xl hover:shadow-accent-500/30"
-            >
-              Get Your Free Mock-Up
-            </a>
-            <a
-              href="#services"
-              className="border-2 border-navy-200 hover:border-navy-300 hover:bg-navy-50 text-navy-700 px-8 py-4 rounded-xl font-semibold text-lg transition-all"
-            >
-              See Pricing
-            </a>
+          {/* Right column — browser mockup */}
+          <div className="hidden lg:block">
+            <BrowserMockup />
           </div>
         </div>
       </div>
@@ -112,7 +184,7 @@ function Services() {
 
         <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {/* Option B — No Upfront (highlighted as recommended) */}
-          <div className="border-2 border-accent-400 rounded-2xl p-8 relative shadow-sm hover:shadow-lg transition-all bg-gradient-to-b from-accent-400/5 to-transparent">
+          <div className="border-2 border-accent-400 rounded-2xl p-8 relative shadow-md hover:shadow-lg transition-all bg-orange-50">
             <div className="absolute -top-4 left-8 bg-accent-500 text-white text-sm font-semibold px-4 py-1 rounded-full">
               Recommended
             </div>
@@ -135,14 +207,14 @@ function Services() {
             </p>
             <a
               href="#contact"
-              className="mt-6 block text-center bg-accent-500 hover:bg-accent-600 text-white px-6 py-3 rounded-xl font-semibold transition-all shadow-lg shadow-accent-500/25 hover:shadow-xl hover:shadow-accent-500/30"
+              className="mt-6 block text-center bg-accent-500 hover:bg-accent-600 text-white px-6 py-3 rounded-xl font-semibold transition-all"
             >
               Get Your Free Mock-Up
             </a>
           </div>
 
           {/* Option A — Pay Upfront */}
-          <div className="border-2 border-navy-100 rounded-2xl p-8 hover:border-accent-400 transition-all shadow-sm hover:shadow-lg relative">
+          <div className="border-2 border-navy-800 rounded-2xl p-8 hover:border-accent-400 transition-all shadow-md hover:shadow-lg relative">
             <div className="absolute -top-4 left-8 bg-navy-800 text-white text-sm font-semibold px-4 py-1 rounded-full">
               Best Value
             </div>
@@ -261,11 +333,11 @@ function Ownership() {
           {items.map((item) => (
             <div
               key={item.title}
-              className="text-center p-6 rounded-2xl border border-navy-700/50 bg-navy-800/50"
+              className="text-center p-6 rounded-2xl border border-navy-200 bg-white"
             >
               <div className="w-12 h-12 bg-accent-500/10 rounded-xl flex items-center justify-center mx-auto mb-4">
                 <svg
-                  className="w-6 h-6 text-accent-400"
+                  className="w-6 h-6 text-accent-500"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -278,34 +350,10 @@ function Ownership() {
                   />
                 </svg>
               </div>
-              <h4 className="font-bold text-white">{item.title}</h4>
-              <p className="text-sm text-navy-300 mt-1">{item.text}</p>
+              <h4 className="font-bold text-navy-900">{item.title}</h4>
+              <p className="text-sm text-navy-500 mt-1">{item.text}</p>
             </div>
           ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function MockUpCTA() {
-  return (
-    <section className="py-16 sm:py-20 bg-gradient-to-br from-navy-50 via-white to-navy-50">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-2xl mx-auto text-center">
-          <h2 className="text-3xl sm:text-4xl font-bold text-navy-900">
-            See your site before you pay a cent
-          </h2>
-          <p className="mt-4 text-lg text-navy-600 leading-relaxed">
-            I&apos;ll design a free homepage mock-up for your business — no
-            commitment, no pressure. Don&apos;t like it? No hard feelings.
-          </p>
-          <a
-            href="#contact"
-            className="mt-8 inline-block bg-accent-500 hover:bg-accent-600 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all shadow-lg shadow-accent-500/25 hover:shadow-xl hover:shadow-accent-500/30"
-          >
-            Get Your Free Mock-Up
-          </a>
         </div>
       </div>
     </section>
@@ -352,7 +400,7 @@ function Comparison() {
   ];
 
   return (
-    <section className="py-16 sm:py-24 bg-white">
+    <section className="py-16 sm:py-24 bg-navy-50">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl sm:text-4xl font-bold text-navy-900">
@@ -369,7 +417,7 @@ function Comparison() {
             <thead>
               <tr className="border-b-2 border-navy-100">
                 <th className="py-4 pr-4 text-sm font-medium text-navy-500" />
-                <th className="py-4 px-4 text-sm font-bold text-accent-600">
+                <th className="py-4 px-4 text-sm font-bold text-accent-600 bg-orange-50 rounded-t-lg border-t-2 border-t-accent-500">
                   NV Web Design
                 </th>
                 <th className="py-4 px-4 text-sm font-medium text-navy-500">
@@ -392,7 +440,7 @@ function Comparison() {
                   <td className="py-4 pr-4 font-medium text-navy-700">
                     {row.label}
                   </td>
-                  <td className="py-4 px-4 font-semibold text-navy-900">
+                  <td className="py-4 px-4 font-semibold text-navy-900 bg-orange-50">
                     {row.nv}
                   </td>
                   <td className="py-4 px-4 text-navy-600">{row.agency}</td>
@@ -442,7 +490,7 @@ function Comparison() {
 
 function About() {
   return (
-    <section id="about" className="py-16 sm:py-24 bg-navy-50">
+    <section id="about" className="py-16 sm:py-24 bg-white">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-3xl sm:text-4xl font-bold text-navy-900 text-center">
@@ -450,7 +498,7 @@ function About() {
           </h2>
 
           <div className="mt-12 space-y-8">
-            <div className="bg-white rounded-2xl p-8 shadow-md border border-navy-100/50">
+            <div className="bg-navy-50 rounded-2xl p-8 shadow-md border border-navy-100/50">
               <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6">
                 <Image
                   src="/nick-headshot.jpg"
@@ -474,10 +522,10 @@ function About() {
             </div>
 
             <div className="grid sm:grid-cols-3 gap-6">
-              <div className="bg-white rounded-2xl p-8 shadow-md border border-navy-100/50 text-center">
-                <div className="w-16 h-16 bg-accent-500/10 rounded-2xl flex items-center justify-center mx-auto mb-5">
+              <div className="flex items-start gap-4 p-4">
+                <div className="w-12 h-12 bg-accent-500/10 rounded-xl flex items-center justify-center shrink-0">
                   <svg
-                    className="w-8 h-8 text-accent-500"
+                    className="w-6 h-6 text-accent-500"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -496,16 +544,18 @@ function About() {
                     />
                   </svg>
                 </div>
-                <h4 className="text-lg font-bold text-navy-900">NZ Based</h4>
-                <p className="text-navy-500 text-sm mt-2 leading-relaxed">
-                  Local support, no offshore runaround
-                </p>
+                <div>
+                  <h4 className="text-lg font-bold text-navy-900">NZ Based</h4>
+                  <p className="text-navy-500 text-sm mt-1 leading-relaxed">
+                    Local support, no offshore runaround
+                  </p>
+                </div>
               </div>
 
-              <div className="bg-white rounded-2xl p-8 shadow-md border border-navy-100/50 text-center">
-                <div className="w-16 h-16 bg-accent-500/10 rounded-2xl flex items-center justify-center mx-auto mb-5">
+              <div className="flex items-start gap-4 p-4">
+                <div className="w-12 h-12 bg-accent-500/10 rounded-xl flex items-center justify-center shrink-0">
                   <svg
-                    className="w-8 h-8 text-accent-500"
+                    className="w-6 h-6 text-accent-500"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -518,16 +568,18 @@ function About() {
                     />
                   </svg>
                 </div>
-                <h4 className="text-lg font-bold text-navy-900">Fair Pricing</h4>
-                <p className="text-navy-500 text-sm mt-2 leading-relaxed">
-                  Honest rates, no surprise invoices
-                </p>
+                <div>
+                  <h4 className="text-lg font-bold text-navy-900">Fair Pricing</h4>
+                  <p className="text-navy-500 text-sm mt-1 leading-relaxed">
+                    Honest rates, no surprise invoices
+                  </p>
+                </div>
               </div>
 
-              <div className="bg-white rounded-2xl p-8 shadow-md border border-navy-100/50 text-center">
-                <div className="w-16 h-16 bg-accent-500/10 rounded-2xl flex items-center justify-center mx-auto mb-5">
+              <div className="flex items-start gap-4 p-4">
+                <div className="w-12 h-12 bg-accent-500/10 rounded-xl flex items-center justify-center shrink-0">
                   <svg
-                    className="w-8 h-8 text-accent-500"
+                    className="w-6 h-6 text-accent-500"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -540,14 +592,16 @@ function About() {
                     />
                   </svg>
                 </div>
-                <h4 className="text-lg font-bold text-navy-900">Fast Turnaround</h4>
-                <p className="text-navy-500 text-sm mt-2 leading-relaxed">
-                  Most sites live within a week
-                </p>
+                <div>
+                  <h4 className="text-lg font-bold text-navy-900">Fast Turnaround</h4>
+                  <p className="text-navy-500 text-sm mt-1 leading-relaxed">
+                    Most sites live within a week
+                  </p>
+                </div>
               </div>
             </div>
 
-            <div className="bg-white rounded-2xl p-8 shadow-md border border-navy-100/50">
+            <div className="bg-navy-50 rounded-2xl p-8 shadow-md border border-navy-100/50">
               <h3 className="text-xl font-bold text-navy-900 mb-4">
                 I understand trades businesses
               </h3>
@@ -659,7 +713,6 @@ export default function Home() {
       <TrustBar />
       <Services />
       <Ownership />
-      <MockUpCTA />
       <Comparison />
       <About />
       <Contact />

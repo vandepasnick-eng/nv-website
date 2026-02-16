@@ -35,12 +35,17 @@ This is a **Next.js 15 single-page marketing site** for NV Web Design (a NZ-base
 **Stack:** React 19, TypeScript 5.7 (strict), Tailwind CSS 4 (via PostCSS), Resend (email)
 
 **Key files:**
-- `src/app/layout.tsx` — Root layout with metadata and Inter font
-- `src/app/page.tsx` — Entire site in one file: Header, Hero, TrustBar, Services, About, Contact, Footer (all local components)
+- `src/app/layout.tsx` — Root layout with metadata, Inter font, and LocalBusiness JSON-LD
+- `src/app/page.tsx` — Server component with all static sections (Hero, TrustBar, Services, Ownership, MockUpCTA, Comparison, About, Footer)
+- `src/app/components/Header.tsx` — Client component: fixed nav with logo, mobile menu
+- `src/app/components/Contact.tsx` — Client component: contact form with submission state
 - `src/app/globals.css` — Tailwind import and custom theme colors
 - `src/app/api/contact/route.ts` — Contact form API route (Resend email)
+- `src/app/icon.svg` — Favicon (SVG monogram)
+- `src/app/robots.ts` — Auto-generates /robots.txt
+- `src/app/sitemap.ts` — Auto-generates /sitemap.xml
 
-**The entire page is a client component** (`"use client"`) because Header and Contact use `useState` for mobile menu toggle and form submission state.
+**Server/client split:** `page.tsx` is a server component. Only `Header.tsx` and `Contact.tsx` are client components (they use `useState`).
 
 ## Styling
 

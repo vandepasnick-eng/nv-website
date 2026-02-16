@@ -2,51 +2,38 @@
 
 ## What's Built
 
-Full single-page marketing site with all core sections:
-- **Header** — fixed nav with logo, Pricing/About links, "Free Mock-Up" CTA, mobile hamburger menu
+Full single-page marketing site with server/client component architecture:
+
+- **Header** (`components/Header.tsx`, client) — fixed nav with SVG monogram logo + "Web Design" wordmark, Pricing/About links, "Free Mock-Up" CTA, animated mobile hamburger menu (CSS transition)
 - **Hero** — outcome-led headline ("Get found on Google. Get more calls."), free mock-up CTA, "See Pricing" secondary CTA
 - **TrustBar** — 4 stats (5–7 days turnaround, 100% NZ, $0 hidden fees, 24hr response)
-- **Services/Pricing** — two payment option cards (No Upfront $0+$179/mo highlighted as "Most Popular", Pay Upfront $1,200+$129/mo as "Best Value"), shared inclusions list below
-- **Ownership** — "Your site. Your name. Yours to keep." section with 4 icon cards (domain, content, no lock-in, always online) on navy background
-- **MockUpCTA** — standalone CTA section: "See your site before you pay a cent"
-- **Comparison** — desktop table + mobile cards comparing NV vs agencies vs DIY vs rental
-- **About** — "Why work with me?" section with engineer background, 3 value props (NZ Based, Fair Pricing, Fast Turnaround), trades understanding
-- **Contact** — functional form (name, email, phone, trade dropdown, message) with "Get My Free Mock-Up" submit button
-- **Footer** — branding, quick links (Pricing, About, Free Mock-Up), contact info, copyright
+- **Services/Pricing** — two payment option cards with matched visual weight (No Upfront $0+$179/mo as "Recommended", Pay Upfront $1,200+$129/mo as "Best Value" with navy border), shared inclusions list, "Get Your Free Mock-Up" CTAs, no button drop shadows
+- **Ownership** — "Your site. Your name. Yours to keep." section with 4 white icon cards (orange icons, navy text) on navy background
+- **Comparison** — desktop table (NV column highlighted with orange-50 tint) + mobile cards comparing NV vs agencies vs DIY vs rental
+- **About** — "Why work with me?" section with Nick's headshot (circle crop), engineer background, 3 left-aligned icon+text rows (NZ Based, Fair Pricing, Fast Turnaround), trades understanding
+- **Contact** (`components/Contact.tsx`, client) — functional form (name, email, phone, trade dropdown, message) with "Get My Free Mock-Up" submit button
+- **Footer** — logo, quick links, contact info (phone, email, location), NZBN (9429053448422), copyright
 
-Additional:
-- Functional contact form with Resend email integration
-- Responsive design across mobile, tablet, and desktop
-- Custom Tailwind CSS 4 theme with navy + accent orange tokens
-- Smooth scroll behavior
-- Meta title/description updated to reflect $0 upfront and 5–7 day turnaround
+## Technical Details
+
+- **Architecture:** Server component page (`page.tsx`) with client components extracted for Header and Contact
+- **SEO:** favicon (`icon.svg`), `robots.ts`, `sitemap.ts`, Open Graph + Twitter card meta, LocalBusiness JSON-LD structured data
+- **Email:** Resend integration via `/api/contact` route, verified sender domain
+- **Styling:** Tailwind CSS 4 custom theme (navy + accent orange tokens), smooth scroll
+- **Responsive:** Mobile-first, animated mobile menu (max-h + opacity CSS transitions)
 
 ## What's Live
 
-The site is deployed (contact form uses a verified sender domain, security headers configured). Likely hosted on Vercel.
-
-## Recent Changes (Feb 2026)
-
-Implemented the business offer update per `plans/business-offer-update.md`:
-- Two payment options replacing single pricing
-- Outcome-led hero messaging
-- Ownership section (key differentiator vs rental competitors)
-- Free mock-up CTA throughout (header, hero, standalone section, contact form, footer)
-- Competitor comparison table with mobile-responsive card layout
-- Updated turnaround from 2 weeks to 5–7 days
-- Value prop quote in pricing section
-- Updated meta description
+Deployed on Vercel at nicholasvandepas.com. Contact form uses verified sender domain, security headers configured.
 
 ## What Could Use Work
 
-- **No tests configured** — Playwright is installed but no test files exist
-- **No favicon or social meta** — no Open Graph images, Twitter cards, or favicon beyond defaults
-- **No analytics** — no tracking to measure if the site is converting visitors
-- **SEO** — has title/description, but no structured data (LocalBusiness schema), no sitemap, no robots.txt
-- **No portfolio/examples section** — the site sells web design but doesn't show any work
-- **Single page only** — no blog, case studies, or additional landing pages for specific trades
-- **No cookie/privacy policy** — may be needed depending on analytics or NZ privacy requirements
-- **Form could be enhanced** — no honeypot spam protection, no rate limiting on the API route
-- **Accessibility** — no skip-to-content link, aria-labels are minimal, no focus management after form submission
-- **Performance** — entire page is client-rendered (`"use client"`); could benefit from server components for static sections
-- **Lint config** — `npm run lint` needs ESLint configured (Next.js 15 deprecation of built-in lint setup)
+- **No social proof** — no testimonials, reviews, or client logos
+- **No portfolio/examples** — no screenshots of sites built
+- **No privacy policy** — collecting personal data without one (NZ Privacy Act 2020)
+- **No analytics** — no tracking to measure conversions
+- **About bio is vague** — "years as an engineer" needs specifics
+- **No spam protection** — no honeypot, rate limiting, or CAPTCHA on contact form
+- **No tests configured** — Playwright installed but no test files
+- **TrustBar stats are unverifiable** — need real proof to back claims
+- **Comparison table feels biased** — could acknowledge trade-offs more honestly

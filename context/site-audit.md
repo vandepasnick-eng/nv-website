@@ -18,15 +18,15 @@ You're selling web design and the site doesn't show a single website you've buil
 ### 4. [FIXED] No real contact details — Footer, Contact
 ~~No phone number, no email address, no physical location (even city).~~ Phone (04 488 7496), email (hello@nicholasvandepas.com), and location (Wellington, New Zealand) added to footer.
 
-### 5. No business registration or credentials — Footer
-No NZBN, no mention of being a registered business, no industry memberships. The footer is generic copyright text. Compare to any established NZ service business — they show their credentials.
+### 5. [FIXED] No business registration or credentials — Footer
+~~No NZBN, no mention of being a registered business.~~ NZBN (9429053448422) added to footer.
 
 ---
 
 ## Generic / Template Feel
 
-### 6. Text-only logo — Header
-`NV Web Design` in plain Inter font with a coloured span. This screams "I made this in 5 minutes." Every template site has this exact pattern. A proper logo (even a simple wordmark SVG) immediately separates you from DIY sites.
+### 6. [FIXED] Text-only logo — Header
+~~Plain text logo.~~ SVG monogram added (navy rounded square with orange "NV" text) alongside "Web Design" wordmark.
 
 ### 7. Stock icon soup — About, Ownership, Services
 Every visual element is a Heroicons SVG stroke icon. Location pin, dollar sign, lightning bolt, globe, document, shield, lock — this is the exact icon set every SaaS template uses. There's nothing visually distinct. The Ownership section is four generic icons that could be on literally any website.
@@ -37,52 +37,46 @@ Just text on a gradient with invisible blur blobs (`bg-accent-400/5` — that's 
 ### 9. Every section follows the same pattern — page.tsx
 Centered heading -> subtext -> grid of cards. Repeat 10 times. Hero: centered text + 2 buttons. TrustBar: grid of stats. Services: grid of cards. Ownership: grid of cards. Comparison: grid/table. About: grid of cards. Contact: centered text + form. There's zero visual variety. It feels like a single Tailwind component copy-pasted with different content.
 
-### 10. Decorative blobs do nothing — Hero
-```
-bg-accent-400/5  -> 5% opacity orange on white = invisible
-bg-navy-200/20   -> 20% opacity light blue on light blue = barely visible
-```
-These are ghost elements. They exist in the code but contribute nothing visually. Either make them visible or remove the dead weight.
+### 10. [FIXED] Decorative blobs do nothing — Hero
+~~Blobs at 5% opacity were invisible.~~ Opacity increased to visible levels (accent-400/20, navy-200/40).
 
 ---
 
 ## Credibility & Copy Issues
 
-### 11. "Most Popular" badge is dishonest — Services
-The site has no customers yet (or at least shows none). Labelling Option B as "Most Popular" when there's no data to back it up is a recognisable sales tactic that erodes trust with a sceptical audience. "Easy Start" or "Recommended" would be honest.
+### 11. [FIXED] "Most Popular" badge is dishonest — Services
+~~"Most Popular" with no data to back it up.~~ Changed to "Recommended".
 
-### 12. Value prop quote feels self-attributed — Services
-> "One job you're losing to a competitor who shows up on Google first covers the entire cost."
-
-This is in quotation marks but attributed to no one. It reads like you're quoting yourself. Either attribute it to a real client or remove the quote marks and present it as a statement.
+### 12. [FIXED] Value prop quote feels self-attributed — Services
+~~In quotation marks but attributed to no one.~~ Quotation marks removed, presented as a plain statement.
 
 ### 13. TrustBar stats are filler — TrustBar
 "100% NZ based" and "$0 hidden fees" aren't stats — they're baseline expectations. Real trust bars show: "X websites built", "X years in business", "X 5-star reviews." Your bar has two actual claims (5-7 days, 24hr response) and two padding items.
 
-### 14. "How we compare" is self-serving — Comparison
-Every comparison table where you write both sides is inherently suspect. The "Web Agencies" column says "$3,000-$8,000+" and "4-8 weeks" — are these real numbers or worst-case strawmen? Without a source, this looks like you're making up the competition's numbers. The highlighted NV column (`bg-accent-400/5`) makes the bias obvious.
+### 14. [FIXED] "How we compare" is self-serving — Comparison
+~~Heading was biased and NV column was highlighted.~~ Heading changed to neutral "Your options". NV column now uses a subtle `bg-orange-50` tint instead of aggressive highlighting.
 
-### 15. MockUpCTA section is redundant — MockUpCTA
-This section says "See your site before you pay a cent" — the same message as the hero, with the same CTA button, pointing to the same #contact anchor. It adds length without adding information. Three "Get Your Free Mock-Up" CTAs (hero, this section, contact) before the user even reaches the form feels pushy.
+### 15. [FIXED] MockUpCTA section is redundant — MockUpCTA
+~~Redundant standalone CTA section repeating the same message as the hero.~~ Section deleted entirely.
 
 ---
 
 ## Technical Issues That Affect Perception
 
-### 16. No favicon — layout.tsx
-The browser tab shows the default Next.js icon or nothing. This is immediately noticeable and screams unfinished.
+### 16. [FIXED] No favicon — layout.tsx
+~~Default Next.js icon.~~ Custom `icon.svg` added matching the logo monogram.
 
-### 17. No Open Graph / social meta — layout.tsx
-Share this link on Facebook, LinkedIn, or in a text message and it'll show a generic preview with no image. For a web design business, the link preview IS a demonstration of your skill.
+### 17. [FIXED] No Open Graph / social meta — layout.tsx
+~~Generic link previews.~~ Open Graph and Twitter card metadata added.
 
-### 18. No `<link rel="canonical">`, no robots.txt, no sitemap — missing files
-The site claims to offer "Basic SEO setup (Google-ready)" but doesn't have basic SEO set up on its own site. If a prospective client checks view-source (unlikely but possible) or if another web person vets you, this is embarrassing.
+### 18. [FIXED] No robots.txt or sitemap — missing files
+~~No SEO fundamentals.~~ `robots.ts` and `sitemap.ts` added, auto-generating `/robots.txt` and `/sitemap.xml`.
 
-### 19. Entire page is client-rendered — page.tsx (line 1)
-`"use client"` on the whole page means Google gets an empty HTML shell on first crawl. For a site that promises "Built to rank on Google" / "Basic SEO setup (Google-ready)", shipping a client-rendered SPA is contradictory. The Header and Contact need state, but the other 8 sections don't.
+### 19. [FIXED] Entire page is client-rendered — page.tsx
+~~`"use client"` on the whole page.~~ Split into server component (`page.tsx`) with client components extracted (`Header.tsx`, `Contact.tsx`). Google now gets real HTML for all static sections.
 
-### 20. No loading/transition states — Header mobile menu
-The mobile menu snaps open/closed with a boolean toggle. No animation, no slide, no fade. It feels janky compared to any modern mobile nav. Small detail but tradies are used to polished apps on their phones.
+### 20. [FIXED] No loading/transition states — Header mobile menu
+~~Menu snaps open/closed.~~ CSS transitions added (max-height + opacity) for smooth animation.
 
 ---
 

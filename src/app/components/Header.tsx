@@ -35,7 +35,7 @@ export default function Header() {
             </a>
             <a
               href="#contact"
-              className="bg-accent-500 hover:bg-accent-600 text-white px-5 py-2 rounded-lg font-medium transition-all shadow-md hover:shadow-lg"
+              className="bg-accent-500 hover:bg-accent-600 text-white px-5 py-2 rounded-lg font-medium transition-all"
             >
               Free Mock-Up
             </a>
