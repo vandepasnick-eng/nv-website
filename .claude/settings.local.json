@@ -10,7 +10,19 @@
       "Bash(git --version:*)",
       "Bash(git config:*)",
       "Bash(git init:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git commit -m \"$\\(cat <<''EOF''\nInitial website build\n\nCo-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(gh --version:*)",
+      "Bash(\"/c/Program Files/GitHub CLI/gh.exe\" auth status)",
+      "Bash(\"/c/Program Files/GitHub CLI/gh.exe\" repo create nv-website --public --source=. --remote=origin --push --description \"NV Web Design — Professional websites for NZ trades businesses\")",
+      "Bash(npm audit:*)",
+      "Bash(git log:*)",
+      "Bash(node security-test.js:*)",
+      "Bash(node:*)",
+      "Bash(git commit -m \"$\\(cat <<''EOF''\nAdd security headers and fix form data leak\n\n- Add CSP, X-Frame-Options, X-Content-Type-Options, HSTS,\n  Referrer-Policy, and Permissions-Policy headers via next.config.ts\n- Add method=\"POST\" to contact form to prevent user data leaking\n  into URL query string if JavaScript fails to load\n\nCo-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(git push:*)",
+      "Bash(npx vercel env add:*)",
+      "Bash(python -m pip install:*)"
     ]
   }
 }

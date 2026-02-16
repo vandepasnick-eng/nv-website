@@ -1,108 +1,13 @@
-"use client";
-
-import { useState } from "react";
-
-function Header() {
-  const [menuOpen, setMenuOpen] = useState(false);
-
-  return (
-    <header className="fixed top-0 w-full bg-white/95 backdrop-blur-sm border-b border-navy-100 z-50">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          <a href="#" className="text-xl font-bold text-navy-900">
-            NV<span className="text-accent-500"> Web Design</span>
-          </a>
-
-          {/* Desktop nav */}
-          <nav className="hidden md:flex items-center gap-8">
-            <a
-              href="#services"
-              className="text-navy-600 hover:text-navy-900 transition-colors"
-            >
-              Services
-            </a>
-            <a
-              href="#about"
-              className="text-navy-600 hover:text-navy-900 transition-colors"
-            >
-              About
-            </a>
-            <a
-              href="#contact"
-              className="bg-accent-500 hover:bg-accent-600 text-white px-5 py-2 rounded-lg font-medium transition-all shadow-md hover:shadow-lg"
-            >
-              Get in Touch
-            </a>
-          </nav>
-
-          {/* Mobile menu button */}
-          <button
-            className="md:hidden p-2 text-navy-600"
-            onClick={() => setMenuOpen(!menuOpen)}
-            aria-label="Toggle menu"
-          >
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              {menuOpen ? (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              ) : (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-              )}
-            </svg>
-          </button>
-        </div>
-
-        {/* Mobile nav */}
-        {menuOpen && (
-          <nav className="md:hidden pb-4 flex flex-col gap-3">
-            <a
-              href="#services"
-              className="text-navy-600 hover:text-navy-900 transition-colors py-1"
-              onClick={() => setMenuOpen(false)}
-            >
-              Services
-            </a>
-            <a
-              href="#about"
-              className="text-navy-600 hover:text-navy-900 transition-colors py-1"
-              onClick={() => setMenuOpen(false)}
-            >
-              About
-            </a>
-            <a
-              href="#contact"
-              className="bg-accent-500 hover:bg-accent-600 text-white px-5 py-2 rounded-lg font-medium transition-colors text-center"
-              onClick={() => setMenuOpen(false)}
-            >
-              Get in Touch
-            </a>
-          </nav>
-        )}
-      </div>
-    </header>
-  );
-}
+import Image from "next/image";
+import Header from "./components/Header";
+import Contact from "./components/Contact";
 
 function Hero() {
   return (
     <section className="relative pt-28 pb-20 sm:pt-36 sm:pb-28 bg-gradient-to-br from-navy-50 via-white to-navy-50 overflow-hidden">
       {/* Decorative background elements */}
-      <div className="absolute top-20 left-10 w-72 h-72 bg-accent-400/5 rounded-full blur-3xl" />
-      <div className="absolute bottom-10 right-10 w-96 h-96 bg-navy-200/20 rounded-full blur-3xl" />
+      <div className="absolute top-20 left-10 w-72 h-72 bg-accent-400/20 rounded-full blur-3xl" />
+      <div className="absolute bottom-10 right-10 w-96 h-96 bg-navy-200/40 rounded-full blur-3xl" />
 
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto text-center">
@@ -114,26 +19,26 @@ function Hero() {
           </div>
 
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-navy-900 leading-tight">
-            Websites that work as hard as{" "}
-            <span className="text-accent-500">you do</span>
+            Get found on Google.{" "}
+            <span className="text-accent-500">Get more calls.</span>
           </h1>
           <p className="mt-6 text-lg sm:text-xl text-navy-600 leading-relaxed max-w-2xl mx-auto">
-            Affordable, professional websites for New Zealand trades businesses.
-            I help plumbers, electricians, landscapers and builders get online —
-            so your customers can find you.
+            Professional websites for NZ trades businesses — live in a week,
+            from $0 upfront. See a free mock-up of your site before you
+            pay a cent.
           </p>
           <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href="#contact"
               className="bg-accent-500 hover:bg-accent-600 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all shadow-lg shadow-accent-500/25 hover:shadow-xl hover:shadow-accent-500/30"
             >
-              Get a Free Quote
+              Get Your Free Mock-Up
             </a>
             <a
               href="#services"
               className="border-2 border-navy-200 hover:border-navy-300 hover:bg-navy-50 text-navy-700 px-8 py-4 rounded-xl font-semibold text-lg transition-all"
             >
-              View Pricing
+              See Pricing
             </a>
           </div>
         </div>
@@ -144,7 +49,7 @@ function Hero() {
 
 function TrustBar() {
   const stats = [
-    { value: "2 weeks", label: "Average turnaround" },
+    { value: "5–7 days", label: "Average turnaround" },
     { value: "100%", label: "NZ based" },
     { value: "$0", label: "Hidden fees" },
     { value: "24hr", label: "Response time" },
@@ -190,105 +95,345 @@ function Services() {
   return (
     <section id="services" className="py-16 sm:py-24 bg-white">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+        <div className="text-center mb-6">
           <h2 className="text-3xl sm:text-4xl font-bold text-navy-900">
             Simple, transparent pricing
           </h2>
           <p className="mt-4 text-lg text-navy-500 max-w-2xl mx-auto">
-            No hidden fees. No complicated packages. Just a great website and
-            reliable hosting at a price that makes sense for your business.
+            Two ways to pay, same great service. Pick the option that suits
+            your business.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-          {/* Website Design */}
-          <div className="border-2 border-navy-100 rounded-2xl p-8 hover:border-accent-400 transition-all shadow-sm hover:shadow-lg relative group">
-            <div className="absolute -top-4 left-8 bg-navy-800 text-white text-sm font-semibold px-4 py-1 rounded-full">
-              One-time
-            </div>
-            <div className="w-14 h-14 bg-navy-50 rounded-xl flex items-center justify-center mb-6">
-              <svg
-                className="w-7 h-7 text-navy-700"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={1.5}
-                  d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                />
-              </svg>
-            </div>
-            <h3 className="text-xl font-bold text-navy-900">
-              Custom Website Design
-            </h3>
-            <div className="mt-4 flex items-baseline gap-1">
-              <span className="text-4xl font-bold text-navy-900">$1,200</span>
-              <span className="text-navy-500">one-off</span>
-            </div>
-            <ul className="mt-6 space-y-3">
-              {[
-                "Professional design tailored to your trade",
-                "Mobile-friendly & fast-loading",
-                "Built to rank on Google",
-                "Contact forms & click-to-call",
-                "Photos & content setup included",
-              ].map((item) => (
-                <li key={item} className="flex items-start gap-3">
-                  <CheckIcon />
-                  <span className="text-navy-600">{item}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
+        <p className="text-center text-navy-600 font-medium text-lg max-w-2xl mx-auto mb-12">
+          One job you&apos;re losing to a competitor who shows up on
+          Google first covers the entire cost.
+        </p>
 
-          {/* Hosting */}
+        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          {/* Option B — No Upfront (highlighted as recommended) */}
           <div className="border-2 border-accent-400 rounded-2xl p-8 relative shadow-sm hover:shadow-lg transition-all bg-gradient-to-b from-accent-400/5 to-transparent">
             <div className="absolute -top-4 left-8 bg-accent-500 text-white text-sm font-semibold px-4 py-1 rounded-full">
-              Ongoing
-            </div>
-            <div className="w-14 h-14 bg-navy-50 rounded-xl flex items-center justify-center mb-6">
-              <svg
-                className="w-7 h-7 text-navy-700"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={1.5}
-                  d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"
-                />
-              </svg>
+              Recommended
             </div>
             <h3 className="text-xl font-bold text-navy-900">
-              Hosting & Maintenance
+              No Upfront
             </h3>
+            <p className="text-sm text-navy-500 mt-1">
+              Nothing to pay today — spread the cost
+            </p>
             <div className="mt-4 flex items-baseline gap-1">
-              <span className="text-4xl font-bold text-navy-900">$129</span>
+              <span className="text-4xl font-bold text-navy-900">$0</span>
+              <span className="text-navy-500">setup</span>
+            </div>
+            <div className="mt-2 flex items-baseline gap-1">
+              <span className="text-2xl font-bold text-navy-900">$179</span>
               <span className="text-navy-500">/month</span>
             </div>
             <p className="text-sm text-navy-400 mt-1">
-              6-month minimum commitment
+              24-month term
             </p>
-            <ul className="mt-6 space-y-3">
-              {[
-                "Fast, reliable NZ-based hosting",
-                "SSL certificate & security updates",
-                "Regular backups & uptime monitoring",
-                "Content updates & minor changes",
-                "Ongoing support via email or phone",
-              ].map((item) => (
-                <li key={item} className="flex items-start gap-3">
-                  <CheckIcon />
-                  <span className="text-navy-600">{item}</span>
-                </li>
-              ))}
-            </ul>
+            <a
+              href="#contact"
+              className="mt-6 block text-center bg-accent-500 hover:bg-accent-600 text-white px-6 py-3 rounded-xl font-semibold transition-all shadow-lg shadow-accent-500/25 hover:shadow-xl hover:shadow-accent-500/30"
+            >
+              Get Your Free Mock-Up
+            </a>
           </div>
+
+          {/* Option A — Pay Upfront */}
+          <div className="border-2 border-navy-100 rounded-2xl p-8 hover:border-accent-400 transition-all shadow-sm hover:shadow-lg relative">
+            <div className="absolute -top-4 left-8 bg-navy-800 text-white text-sm font-semibold px-4 py-1 rounded-full">
+              Best Value
+            </div>
+            <h3 className="text-xl font-bold text-navy-900">
+              Pay Upfront
+            </h3>
+            <p className="text-sm text-navy-500 mt-1">
+              Save $1,200 over two years
+            </p>
+            <div className="mt-4 flex items-baseline gap-1">
+              <span className="text-4xl font-bold text-navy-900">$1,200</span>
+              <span className="text-navy-500">setup</span>
+            </div>
+            <div className="mt-2 flex items-baseline gap-1">
+              <span className="text-2xl font-bold text-navy-900">$129</span>
+              <span className="text-navy-500">/month</span>
+            </div>
+            <p className="text-sm text-navy-400 mt-1">
+              6-month minimum
+            </p>
+            <a
+              href="#contact"
+              className="mt-6 block text-center border-2 border-navy-200 hover:border-accent-400 hover:bg-navy-50 text-navy-700 px-6 py-3 rounded-xl font-semibold transition-all"
+            >
+              Get Your Free Mock-Up
+            </a>
+          </div>
+        </div>
+
+        {/* Shared inclusions */}
+        <div className="mt-16 max-w-4xl mx-auto">
+          <h3 className="text-xl font-bold text-navy-900 text-center mb-8">
+            Everything included with both options
+          </h3>
+          <div className="grid sm:grid-cols-2 gap-x-12 gap-y-4">
+            <div>
+              <h4 className="font-semibold text-navy-800 mb-3">The Build</h4>
+              <ul className="space-y-3">
+                {[
+                  "Custom-designed website (3–5 pages)",
+                  "Mobile-friendly & fast-loading",
+                  "Contact / quote request form",
+                  "Basic SEO setup (Google-ready)",
+                  "Domain setup assistance",
+                  "Live within 5–7 business days",
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-3">
+                    <CheckIcon />
+                    <span className="text-navy-600">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-semibold text-navy-800 mb-3">Ongoing</h4>
+              <ul className="space-y-3">
+                {[
+                  "Website hosting",
+                  "SSL certificate & security updates",
+                  "Regular backups & uptime monitoring",
+                  "Minor content updates (up to 2/month)",
+                  "Email support — 24hr response",
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-3">
+                    <CheckIcon />
+                    <span className="text-navy-600">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Ownership() {
+  const items = [
+    {
+      d: "M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9",
+      title: "Your domain",
+      text: "Registered in your name",
+    },
+    {
+      d: "M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z",
+      title: "Your content",
+      text: "All files and images belong to you",
+    },
+    {
+      d: "M8 11V7a4 4 0 118 0m-4 8v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2z",
+      title: "No lock-in tricks",
+      text: "Cancel and we hand everything over",
+    },
+    {
+      d: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z",
+      title: "Always online",
+      text: "Your site never disappears",
+    },
+  ];
+
+  return (
+    <section className="py-16 sm:py-20 bg-navy-900">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-3xl mx-auto text-center mb-12">
+          <h2 className="text-3xl sm:text-4xl font-bold text-white">
+            Your site. Your name.{" "}
+            <span className="text-accent-400">Yours to keep.</span>
+          </h2>
+          <p className="mt-4 text-lg text-navy-300">
+            Unlike website rental companies, you actually own what you pay for.
+          </p>
+        </div>
+
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-4xl mx-auto">
+          {items.map((item) => (
+            <div
+              key={item.title}
+              className="text-center p-6 rounded-2xl border border-navy-700/50 bg-navy-800/50"
+            >
+              <div className="w-12 h-12 bg-accent-500/10 rounded-xl flex items-center justify-center mx-auto mb-4">
+                <svg
+                  className="w-6 h-6 text-accent-400"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={1.5}
+                    d={item.d}
+                  />
+                </svg>
+              </div>
+              <h4 className="font-bold text-white">{item.title}</h4>
+              <p className="text-sm text-navy-300 mt-1">{item.text}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function MockUpCTA() {
+  return (
+    <section className="py-16 sm:py-20 bg-gradient-to-br from-navy-50 via-white to-navy-50">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-2xl mx-auto text-center">
+          <h2 className="text-3xl sm:text-4xl font-bold text-navy-900">
+            See your site before you pay a cent
+          </h2>
+          <p className="mt-4 text-lg text-navy-600 leading-relaxed">
+            I&apos;ll design a free homepage mock-up for your business — no
+            commitment, no pressure. Don&apos;t like it? No hard feelings.
+          </p>
+          <a
+            href="#contact"
+            className="mt-8 inline-block bg-accent-500 hover:bg-accent-600 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all shadow-lg shadow-accent-500/25 hover:shadow-xl hover:shadow-accent-500/30"
+          >
+            Get Your Free Mock-Up
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Comparison() {
+  const rows = [
+    {
+      label: "Setup cost",
+      nv: "$1,200 or $0",
+      agency: "$3,000–$8,000+",
+      diy: "$0 (you build it)",
+      rental: "$0",
+    },
+    {
+      label: "Monthly",
+      nv: "$129–$179",
+      agency: "$300+",
+      diy: "$30–$40 + your time",
+      rental: "$99",
+    },
+    {
+      label: "You own it",
+      nv: "Yes — always",
+      agency: "Yes",
+      diy: "Yes",
+      rental: "No — gone if you cancel",
+    },
+    {
+      label: "Turnaround",
+      nv: "5–7 days",
+      agency: "4–8 weeks",
+      diy: "Whenever you finish",
+      rental: "1–2 weeks",
+    },
+    {
+      label: "Ongoing support",
+      nv: "Included",
+      agency: "Extra cost",
+      diy: "None",
+      rental: "Basic",
+    },
+  ];
+
+  return (
+    <section className="py-16 sm:py-24 bg-white">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl sm:text-4xl font-bold text-navy-900">
+            Your options
+          </h2>
+          <p className="mt-4 text-lg text-navy-500 max-w-2xl mx-auto">
+            There are a few ways to get a website. Here&apos;s how they compare.
+          </p>
+        </div>
+
+        {/* Desktop table */}
+        <div className="hidden md:block max-w-4xl mx-auto">
+          <table className="w-full text-left">
+            <thead>
+              <tr className="border-b-2 border-navy-100">
+                <th className="py-4 pr-4 text-sm font-medium text-navy-500" />
+                <th className="py-4 px-4 text-sm font-bold text-accent-600">
+                  NV Web Design
+                </th>
+                <th className="py-4 px-4 text-sm font-medium text-navy-500">
+                  Web Agencies
+                </th>
+                <th className="py-4 px-4 text-sm font-medium text-navy-500">
+                  DIY (Wix etc.)
+                </th>
+                <th className="py-4 px-4 text-sm font-medium text-navy-500">
+                  Website Rental
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {rows.map((row) => (
+                <tr
+                  key={row.label}
+                  className="border-b border-navy-100"
+                >
+                  <td className="py-4 pr-4 font-medium text-navy-700">
+                    {row.label}
+                  </td>
+                  <td className="py-4 px-4 font-semibold text-navy-900">
+                    {row.nv}
+                  </td>
+                  <td className="py-4 px-4 text-navy-600">{row.agency}</td>
+                  <td className="py-4 px-4 text-navy-600">{row.diy}</td>
+                  <td className="py-4 px-4 text-navy-600">{row.rental}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        {/* Mobile cards */}
+        <div className="md:hidden space-y-4">
+          {rows.map((row) => (
+            <div
+              key={row.label}
+              className="bg-navy-50 rounded-xl p-4 border border-navy-100"
+            >
+              <div className="text-sm font-medium text-navy-500 mb-2">
+                {row.label}
+              </div>
+              <div className="font-semibold text-navy-900 mb-2">
+                <span className="text-accent-600">NV: </span>
+                {row.nv}
+              </div>
+              <div className="grid grid-cols-3 gap-2 text-sm text-navy-500">
+                <div>
+                  <span className="block text-xs text-navy-400">Agency</span>
+                  {row.agency}
+                </div>
+                <div>
+                  <span className="block text-xs text-navy-400">DIY</span>
+                  {row.diy}
+                </div>
+                <div>
+                  <span className="block text-xs text-navy-400">Rental</span>
+                  {row.rental}
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
@@ -306,15 +451,26 @@ function About() {
 
           <div className="mt-12 space-y-8">
             <div className="bg-white rounded-2xl p-8 shadow-md border border-navy-100/50">
-              <h3 className="text-xl font-bold text-navy-900 mb-4">
-                Engineer turned web developer
-              </h3>
-              <p className="text-navy-600 leading-relaxed">
-                I spent years as an engineer before moving into web development.
-                That means I approach every project with the same attention to
-                detail and problem-solving mindset — your website won&apos;t just
-                look good, it&apos;ll be built properly under the hood.
-              </p>
+              <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6">
+                <Image
+                  src="/nick-headshot.jpg"
+                  alt="Nick van de Pas"
+                  width={120}
+                  height={120}
+                  className="rounded-full shrink-0 border-4 border-navy-100"
+                />
+                <div>
+                  <h3 className="text-xl font-bold text-navy-900 mb-4 text-center sm:text-left">
+                    Engineer turned web developer
+                  </h3>
+                  <p className="text-navy-600 leading-relaxed">
+                    I spent years as an engineer before moving into web development.
+                    That means I approach every project with the same attention to
+                    detail and problem-solving mindset — your website won&apos;t just
+                    look good, it&apos;ll be built properly under the hood.
+                  </p>
+                </div>
+              </div>
             </div>
 
             <div className="grid sm:grid-cols-3 gap-6">
@@ -386,7 +542,7 @@ function About() {
                 </div>
                 <h4 className="text-lg font-bold text-navy-900">Fast Turnaround</h4>
                 <p className="text-navy-500 text-sm mt-2 leading-relaxed">
-                  Most sites live within 2 weeks
+                  Most sites live within a week
                 </p>
               </div>
             </div>
@@ -410,220 +566,21 @@ function About() {
   );
 }
 
-function Contact() {
-  const [submitted, setSubmitted] = useState(false);
-  const [sending, setSending] = useState(false);
-  const [error, setError] = useState("");
-
-  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    setSending(true);
-    setError("");
-
-    const form = e.currentTarget;
-    const data = {
-      name: (form.elements.namedItem("name") as HTMLInputElement).value,
-      email: (form.elements.namedItem("email") as HTMLInputElement).value,
-      phone: (form.elements.namedItem("phone") as HTMLInputElement).value,
-      trade: (form.elements.namedItem("trade") as HTMLSelectElement).value,
-      message: (form.elements.namedItem("message") as HTMLTextAreaElement).value,
-    };
-
-    try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
-      });
-
-      if (!res.ok) {
-        const result = await res.json();
-        throw new Error(result.error || "Something went wrong");
-      }
-
-      setSubmitted(true);
-    } catch (err) {
-      setError(
-        err instanceof Error ? err.message : "Failed to send. Please try again."
-      );
-    } finally {
-      setSending(false);
-    }
-  }
-
-  return (
-    <section id="contact" className="py-16 sm:py-24 bg-white">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-2xl mx-auto text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl font-bold text-navy-900">
-            Let&apos;s get your business online
-          </h2>
-          <p className="mt-4 text-lg text-navy-500">
-            Drop me a message and I&apos;ll get back to you within 24 hours.
-            No obligation, just a friendly chat about what you need.
-          </p>
-        </div>
-
-        <div className="max-w-xl mx-auto">
-          {submitted ? (
-            <div className="text-center py-12 bg-navy-50 rounded-2xl border border-navy-100">
-              <svg
-                className="w-16 h-16 text-accent-500 mx-auto mb-4"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={1.5}
-                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
-              </svg>
-              <h3 className="text-xl font-bold text-navy-900">
-                Thanks for reaching out!
-              </h3>
-              <p className="mt-2 text-navy-600">
-                I&apos;ll be in touch within 24 hours.
-              </p>
-            </div>
-          ) : (
-            <div className="bg-navy-50 rounded-2xl p-6 sm:p-10 border border-navy-100">
-              <form
-                method="POST"
-                onSubmit={handleSubmit}
-                className="space-y-5"
-              >
-                <div className="grid sm:grid-cols-2 gap-5">
-                  <div>
-                    <label
-                      htmlFor="name"
-                      className="block text-sm font-medium text-navy-700 mb-1.5"
-                    >
-                      Name
-                    </label>
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      required
-                      className="w-full px-4 py-3 rounded-lg border border-navy-200 focus:border-accent-500 focus:ring-2 focus:ring-accent-500/20 outline-none transition-all text-navy-900 bg-white"
-                      placeholder="e.g. John Smith"
-                    />
-                  </div>
-
-                  <div>
-                    <label
-                      htmlFor="email"
-                      className="block text-sm font-medium text-navy-700 mb-1.5"
-                    >
-                      Email
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      required
-                      className="w-full px-4 py-3 rounded-lg border border-navy-200 focus:border-accent-500 focus:ring-2 focus:ring-accent-500/20 outline-none transition-all text-navy-900 bg-white"
-                      placeholder="john@example.co.nz"
-                    />
-                  </div>
-                </div>
-
-                <div className="grid sm:grid-cols-2 gap-5">
-                  <div>
-                    <label
-                      htmlFor="phone"
-                      className="block text-sm font-medium text-navy-700 mb-1.5"
-                    >
-                      Phone{" "}
-                      <span className="text-navy-400 font-normal">(optional)</span>
-                    </label>
-                    <input
-                      type="tel"
-                      id="phone"
-                      name="phone"
-                      className="w-full px-4 py-3 rounded-lg border border-navy-200 focus:border-accent-500 focus:ring-2 focus:ring-accent-500/20 outline-none transition-all text-navy-900 bg-white"
-                      placeholder="021 123 4567"
-                    />
-                  </div>
-
-                  <div>
-                    <label
-                      htmlFor="trade"
-                      className="block text-sm font-medium text-navy-700 mb-1.5"
-                    >
-                      What trade are you in?
-                    </label>
-                    <select
-                      id="trade"
-                      name="trade"
-                      className="w-full px-4 py-3 rounded-lg border border-navy-200 focus:border-accent-500 focus:ring-2 focus:ring-accent-500/20 outline-none transition-all text-navy-900 bg-white"
-                    >
-                      <option value="">Select your trade</option>
-                      <option value="plumbing">Plumbing</option>
-                      <option value="electrical">Electrical</option>
-                      <option value="landscaping">Landscaping</option>
-                      <option value="building">Building / Construction</option>
-                      <option value="painting">Painting</option>
-                      <option value="roofing">Roofing</option>
-                      <option value="hvac">HVAC / Heat Pumps</option>
-                      <option value="other">Other</option>
-                    </select>
-                  </div>
-                </div>
-
-                <div>
-                  <label
-                    htmlFor="message"
-                    className="block text-sm font-medium text-navy-700 mb-1.5"
-                  >
-                    Tell me a bit about your business
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    rows={4}
-                    className="w-full px-4 py-3 rounded-lg border border-navy-200 focus:border-accent-500 focus:ring-2 focus:ring-accent-500/20 outline-none transition-all text-navy-900 resize-none bg-white"
-                    placeholder="What services do you offer? Do you have an existing website?"
-                  />
-                </div>
-
-                {error && (
-                  <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg text-sm">
-                    {error}
-                  </div>
-                )}
-
-                <button
-                  type="submit"
-                  disabled={sending}
-                  className="w-full bg-accent-500 hover:bg-accent-600 disabled:bg-accent-500/50 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all cursor-pointer shadow-lg shadow-accent-500/25 hover:shadow-xl hover:shadow-accent-500/30 disabled:cursor-not-allowed disabled:shadow-none"
-                >
-                  {sending ? "Sending..." : "Send Message"}
-                </button>
-              </form>
-
-              <p className="text-center text-sm text-navy-400 mt-4">
-                No spam, no obligation — just a friendly chat.
-              </p>
-            </div>
-          )}
-        </div>
-      </div>
-    </section>
-  );
-}
-
 function Footer() {
   return (
     <footer className="bg-navy-900 text-navy-300">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
           <div>
-            <span className="text-xl font-bold text-white">
-              NV<span className="text-accent-500"> Web Design</span>
-            </span>
+            <a href="#" className="flex items-center gap-2">
+              <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" className="shrink-0">
+                <rect width="32" height="32" rx="8" fill="#102a43" />
+                <text x="16" y="22" textAnchor="middle" fill="#d97706" fontSize="16" fontWeight="700" fontFamily="Inter, system-ui, sans-serif">NV</text>
+              </svg>
+              <span className="text-xl font-bold text-white">
+                <span className="text-accent-500">Web Design</span>
+              </span>
+            </a>
             <p className="text-sm mt-3 leading-relaxed text-navy-400">
               Professional websites for NZ trades businesses. Get online with a
               site that works as hard as you do.
@@ -637,7 +594,7 @@ function Footer() {
                 href="#services"
                 className="text-sm text-navy-400 hover:text-white transition-colors"
               >
-                Services & Pricing
+                Pricing
               </a>
               <a
                 href="#about"
@@ -649,7 +606,7 @@ function Footer() {
                 href="#contact"
                 className="text-sm text-navy-400 hover:text-white transition-colors"
               >
-                Get in Touch
+                Free Mock-Up
               </a>
             </nav>
           </div>
@@ -657,13 +614,24 @@ function Footer() {
           <div>
             <h4 className="font-semibold text-white mb-3">Get in Touch</h4>
             <div className="flex flex-col gap-2 text-sm text-navy-400">
-              <span>Based in New Zealand</span>
-              <span>Response within 24 hours</span>
+              <a
+                href="tel:044887496"
+                className="hover:text-white transition-colors"
+              >
+                04 488 7496
+              </a>
+              <a
+                href="mailto:hello@nicholasvandepas.com"
+                className="hover:text-white transition-colors"
+              >
+                hello@nicholasvandepas.com
+              </a>
+              <span>Based in Wellington, New Zealand</span>
               <a
                 href="#contact"
                 className="text-accent-400 hover:text-accent-500 transition-colors font-medium"
               >
-                Send a message &rarr;
+                Request a mock-up &rarr;
               </a>
             </div>
           </div>
@@ -673,6 +641,9 @@ function Footer() {
           <p className="text-sm text-navy-500">
             &copy; {new Date().getFullYear()} NV Web Design. All rights
             reserved.
+          </p>
+          <p className="text-xs text-navy-600 mt-2">
+            NZBN: 9429053448422
           </p>
         </div>
       </div>
@@ -687,6 +658,9 @@ export default function Home() {
       <Hero />
       <TrustBar />
       <Services />
+      <Ownership />
+      <MockUpCTA />
+      <Comparison />
       <About />
       <Contact />
       <Footer />
