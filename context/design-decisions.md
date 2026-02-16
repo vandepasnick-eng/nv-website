@@ -15,7 +15,7 @@
 
 **Server/client component split:** The main page (`page.tsx`) is a server component. Only `Header.tsx` and `Contact.tsx` are client components (they need `useState`). This means Google gets real HTML for all static sections (Hero, TrustBar, Services, Ownership, Comparison, About, Footer) on first crawl — better for SEO. JS bundle reduced from ~12 kB to ~8 kB.
 
-**Component structure:** Static sections (Hero, TrustBar, Services, Ownership, MockUpCTA, Comparison, About, Footer) are defined as local functions in `page.tsx`. Interactive components live in `src/app/components/`:
+**Component structure:** Static sections (Hero, TrustBar, Services, Ownership, Comparison, About, Footer) are defined as local functions in `page.tsx`. Interactive components live in `src/app/components/`:
 - `Header.tsx` — mobile menu toggle state
 - `Contact.tsx` — form submission state (submitted, sending, error)
 

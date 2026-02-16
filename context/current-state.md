@@ -5,7 +5,7 @@
 Full single-page marketing site with server/client component architecture:
 
 - **Header** (`components/Header.tsx`, client) — fixed nav with SVG monogram logo + "Web Design" wordmark, Pricing/About links, "Free Mock-Up" CTA, animated mobile hamburger menu (CSS transition)
-- **Hero** — outcome-led headline ("Get found on Google. Get more calls."), free mock-up CTA, "See Pricing" secondary CTA
+- **Hero** — centered layout with outcome-led headline ("Get found on Google. Get more calls."), free mock-up CTA, "See Pricing" secondary CTA
 - **TrustBar** — 4 stats (5–7 days turnaround, 100% NZ, $0 hidden fees, 24hr response)
 - **Services/Pricing** — two payment option cards with matched visual weight (No Upfront $0+$179/mo as "Recommended", Pay Upfront $1,200+$129/mo as "Best Value" with navy border), shared inclusions list, "Get Your Free Mock-Up" CTAs, no button drop shadows
 - **Ownership** — "Your site. Your name. Yours to keep." section with 4 white icon cards (orange icons, navy text) on navy background

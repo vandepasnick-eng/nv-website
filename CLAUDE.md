@@ -24,9 +24,9 @@ Implementation plans are stored in `plans/`.
 - `npm run dev` — Start development server with hot reload
 - `npm run build` — Production build
 - `npm run start` — Start production server
-- `npm run lint` — Run ESLint via Next.js
+- `npm run lint` — **Not configured** (prompts for interactive ESLint setup). The build step already includes type checking and linting.
 
-No test framework is configured (Playwright is installed but no tests written).
+**Testing:** Playwright is installed (`playwright` package) but `@playwright/test` must be installed separately to write tests. No test files or `playwright.config.ts` exist in the repo.
 
 ## Architecture
 
@@ -36,7 +36,7 @@ This is a **Next.js 15 single-page marketing site** for NV Web Design (a NZ-base
 
 **Key files:**
 - `src/app/layout.tsx` — Root layout with metadata, Inter font, and LocalBusiness JSON-LD
-- `src/app/page.tsx` — Server component with all static sections (Hero, TrustBar, Services, Ownership, MockUpCTA, Comparison, About, Footer)
+- `src/app/page.tsx` — Server component with all static sections (Hero, TrustBar, Services, Ownership, Comparison, About, Footer)
 - `src/app/components/Header.tsx` — Client component: fixed nav with logo, mobile menu
 - `src/app/components/Contact.tsx` — Client component: contact form with submission state
 - `src/app/globals.css` — Tailwind import and custom theme colors
@@ -62,6 +62,12 @@ Use these via Tailwind classes like `text-navy-900`, `bg-accent-500`, etc.
 ## Working on This Site
 
 This is a **live business site**. Be careful with changes:
-- Always run `npm run build` and `npm run lint` after changes
+- Always run `npm run build` after changes (lint is covered by the build step)
 - Follow existing patterns — use the theme tokens, keep the single-file architecture
 - Update `context/current-state.md` after significant changes
+
+## Dev Server Notes
+
+- Default port is 3000. Use `npm run dev -- --port <N>` to specify a different port.
+- If a port is busy, try the next port up rather than killing processes.
+- On Windows/MINGW, avoid `taskkill` to stop dev servers — it can leave dependent processes (e.g. Playwright) in a broken state. Use Ctrl+C or close the terminal instead.
