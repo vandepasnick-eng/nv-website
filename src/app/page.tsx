@@ -2,70 +2,6 @@ import Image from "next/image";
 import Header from "./components/Header";
 import Contact from "./components/Contact";
 
-function BrowserMockup() {
-  return (
-    <div className="rounded-xl overflow-hidden shadow-2xl border border-navy-200 bg-white">
-      {/* Browser chrome */}
-      <div className="bg-navy-100 px-4 py-2.5 flex items-center gap-2">
-        <div className="flex gap-1.5">
-          <span className="w-3 h-3 rounded-full bg-navy-300" />
-          <span className="w-3 h-3 rounded-full bg-navy-300" />
-          <span className="w-3 h-3 rounded-full bg-navy-300" />
-        </div>
-        <div className="flex-1 bg-white rounded-md px-3 py-1 text-xs text-navy-400 ml-2">
-          wellingtonplumbing.co.nz
-        </div>
-      </div>
-      {/* Fake site content — plumber theme */}
-      <div className="bg-sky-50">
-        {/* Nav */}
-        <div className="bg-white px-4 py-2 flex items-center justify-between border-b border-sky-100">
-          <span className="text-sm font-bold text-sky-900">WP Plumbing</span>
-          <div className="flex gap-3 text-xs text-sky-600">
-            <span>Services</span>
-            <span>About</span>
-            <span className="bg-sky-600 text-white px-2 py-0.5 rounded text-xs">Call Now</span>
-          </div>
-        </div>
-        {/* Hero area */}
-        <div className="px-4 py-6 sm:py-8">
-          <p className="text-lg sm:text-xl font-bold text-sky-900 leading-snug">
-            Wellington&apos;s Trusted<br />
-            <span className="text-sky-600">Plumber</span>
-          </p>
-          <p className="text-xs text-sky-700 mt-2 leading-relaxed">
-            Fast, reliable plumbing for homes<br />
-            and businesses across Wellington.
-          </p>
-          <div className="flex gap-2 mt-3">
-            <span className="bg-sky-600 text-white text-xs px-3 py-1.5 rounded font-medium">
-              Get a Quote
-            </span>
-            <span className="border border-sky-300 text-sky-700 text-xs px-3 py-1.5 rounded">
-              04 555 1234
-            </span>
-          </div>
-        </div>
-        {/* Service cards hint */}
-        <div className="px-4 pb-4 grid grid-cols-3 gap-2">
-          <div className="bg-white rounded-lg p-2 text-center border border-sky-100">
-            <div className="w-6 h-6 bg-sky-100 rounded-full mx-auto mb-1" />
-            <span className="text-xs text-sky-800 font-medium">Repairs</span>
-          </div>
-          <div className="bg-white rounded-lg p-2 text-center border border-sky-100">
-            <div className="w-6 h-6 bg-sky-100 rounded-full mx-auto mb-1" />
-            <span className="text-xs text-sky-800 font-medium">New Builds</span>
-          </div>
-          <div className="bg-white rounded-lg p-2 text-center border border-sky-100">
-            <div className="w-6 h-6 bg-sky-100 rounded-full mx-auto mb-1" />
-            <span className="text-xs text-sky-800 font-medium">Gas</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
 function Hero() {
   return (
     <section className="relative pt-28 pb-20 sm:pt-36 sm:pb-28 bg-gradient-to-br from-navy-50 via-white to-navy-50 overflow-hidden">
@@ -74,44 +10,36 @@ function Hero() {
       <div className="absolute bottom-10 right-10 w-96 h-96 bg-navy-200/40 rounded-full blur-3xl" />
 
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* Left column — copy */}
-          <div>
-            <div className="inline-flex items-center gap-2 bg-navy-900/5 rounded-full px-4 py-1.5 mb-8">
-              <span className="w-2 h-2 bg-accent-500 rounded-full" />
-              <span className="text-sm font-medium text-navy-700">
-                NZ-based web design for trades
-              </span>
-            </div>
-
-            <h1 className="text-4xl sm:text-5xl lg:text-5xl font-bold text-navy-900 leading-tight">
-              Get found on Google.{" "}
-              <span className="text-accent-500">Get more calls.</span>
-            </h1>
-            <p className="mt-6 text-lg sm:text-xl text-navy-600 leading-relaxed">
-              Professional websites for NZ trades businesses — live in a week,
-              from $0 upfront. See a free mock-up of your site before you
-              pay a cent.
-            </p>
-            <div className="mt-10 flex flex-col sm:flex-row gap-4">
-              <a
-                href="#contact"
-                className="bg-accent-500 hover:bg-accent-600 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all text-center"
-              >
-                Get Your Free Mock-Up
-              </a>
-              <a
-                href="#services"
-                className="border-2 border-navy-200 hover:border-navy-300 hover:bg-navy-50 text-navy-700 px-8 py-4 rounded-xl font-semibold text-lg transition-all text-center"
-              >
-                See Pricing
-              </a>
-            </div>
+        <div className="max-w-3xl mx-auto text-center">
+          <div className="inline-flex items-center gap-2 bg-navy-900/5 rounded-full px-4 py-1.5 mb-8">
+            <span className="w-2 h-2 bg-accent-500 rounded-full" />
+            <span className="text-sm font-medium text-navy-700">
+              NZ-based web design for trades
+            </span>
           </div>
 
-          {/* Right column — browser mockup */}
-          <div className="hidden lg:block">
-            <BrowserMockup />
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-navy-900 leading-tight">
+            Get found on Google.{" "}
+            <span className="text-accent-500">Get more calls.</span>
+          </h1>
+          <p className="mt-6 text-lg sm:text-xl text-navy-600 leading-relaxed max-w-2xl mx-auto">
+            Professional websites for NZ trades businesses — live in a week,
+            from $0 upfront. See a free mock-up of your site before you
+            pay a cent.
+          </p>
+          <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href="#contact"
+              className="bg-accent-500 hover:bg-accent-600 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all"
+            >
+              Get Your Free Mock-Up
+            </a>
+            <a
+              href="#services"
+              className="border-2 border-navy-200 hover:border-navy-300 hover:bg-navy-50 text-navy-700 px-8 py-4 rounded-xl font-semibold text-lg transition-all"
+            >
+              See Pricing
+            </a>
           </div>
         </div>
       </div>
